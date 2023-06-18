@@ -23,48 +23,80 @@ public class TestRunner {
 
         driver.get("https://andreisecuqa.host/");
 
-        WebElement accountIcon = driver.findElement(By.xpath("//i[@class='fa-solid fa-user']"));
-        accountIcon.click();
+//        WebElement accountIcon = driver.findElement(By.xpath("//i[@class='fa-solid fa-user']"));
+//        accountIcon.click();
+//
+//        WebElement registerButton = driver.findElement(By.xpath("//a[normalize-space()='Register']"));
+//        registerButton.click();
+//
+//        WebElement firstNameInput = driver.findElement(By.id("input-firstname"));
+//        firstNameInput.sendKeys("Anton");
+//
+//        WebElement lastNameInput = driver.findElement(By.id("input-lastname"));
+//        lastNameInput.sendKeys("Gaidulean");
+//
+//        WebElement emailInput = driver.findElement(By.id("input-email"));
+//        emailInput.sendKeys("a.g000011@gmail.com");
+//
+//        WebElement passwordInput = driver.findElement(By.id("input-password"));
+//        passwordInput.sendKeys("Antonel000011!");
+//
+//        Thread.sleep(500);
+//
+//        WebElement privacyToggle = driver.findElement(By.cssSelector("input[value='1'][name='agree']"));
+//        ScrollManager.scrollToElement(driver,privacyToggle);
+//
+//        privacyToggle.click();
+//
+//        WebElement continueButton = driver.findElement(By.xpath("//button[normalize-space()='Continue']"));
+//        continueButton.click();
+//
+//        Thread.sleep(500);
+//        System.out.println(driver.getCurrentUrl());
 
-        WebElement registerButton = driver.findElement(By.xpath("//a[normalize-space()='Register']"));
-        registerButton.click();
 
-        String firstName = DataFakerManager.getRandomName();
-        System.out.println("The generated first name is: " + firstName);
+//   1st method - comment registration code lines (26 - 55) and 65-80 lines. Modify line 98
+        WebElement myAccount = driver.findElement(By.xpath("//span[normalize-space()='My Account']"));
+        myAccount.click();
 
-        String lastName = DataFakerManager.getRandomName();
-        System.out.println("The generated last name is: " + lastName);
+        WebElement login = driver.findElement(By.xpath("//a[@class='dropdown-item'][normalize-space()='Login']"));
+        login.click();
 
-        String email = DataFakerManager.getRandomEmail();
-        System.out.println("The generated email is: " + email);
+//   2nd method - comment lines 62-63; uncomment registration code lines (26-55) and 67 -76  lines. Modify line 98
 
-        String password = DataFakerManager.getRandomPassword(10,20);
-        System.out.println("The generated password is: " + password);
+//        WebElement logout = driver.findElement(By.xpath("//a[@class='dropdown-item'][normalize-space()='Logout']"));
+//        logout.click();
+//
+//        Thread.sleep(1000);
 
-        WebElement firstNameInput = driver.findElement(By.id("input-firstname"));
-        firstNameInput.sendKeys(firstName);
+//        myAccount = driver.findElement(By.xpath("//span[normalize-space()='My Account']"));
+//        myAccount.click();
+//
+//        WebElement myAccountLogin = driver.findElement(By.xpath("//a[@class='dropdown-item'][normalize-space()='Login']"));
+//        myAccountLogin.click();
 
-        WebElement lastNameInput = driver.findElement(By.id("input-lastname"));
-        lastNameInput.sendKeys(lastName);
+//   3rd method - comment lines 62-63 and 72-76;  uncomment registration code lines (26-55) and 79-80 lines. Modify line 98
+//        WebElement login1 = driver.findElement(By.xpath("//a[@class='list-group-item'][normalize-space()='Login']"));
+//        login1.click();
 
-        WebElement emailInput = driver.findElement(By.id("input-email"));
-        emailInput.sendKeys(email);
+        WebElement loginEmail = driver.findElement(By.xpath("//input[@id='input-email']"));
+        loginEmail.sendKeys("a.g000011@gmail.com");
 
-        WebElement passwordInput = driver.findElement(By.id("input-password"));
-        passwordInput.sendKeys(password);
+        WebElement loginPassword = driver.findElement(By.xpath("//input[@id='input-password']"));
+        loginPassword.sendKeys("Antonel000011!");
+
+        Thread.sleep(1000);
+
+        WebElement loginConfirmation = driver.findElement(By.xpath("//button[normalize-space()='Login']"));
+        loginConfirmation.click();
 
         Thread.sleep(500);
 
-        WebElement privacyToggle = driver.findElement(By.cssSelector("input[value='1'][name='agree']"));
-        ScrollManager.scrollToElement(driver,privacyToggle);
+        myAccount = driver.findElement(By.xpath("//span[normalize-space()='My Account']"));
+        myAccount.click();
 
-        privacyToggle.click();
-
-        WebElement continueButton = driver.findElement(By.xpath("//button[normalize-space()='Continue']"));
-        continueButton.click();
-
-        Thread.sleep(5000);
-        System.out.println(driver.getCurrentUrl());
+        WebElement logout = driver.findElement(By.xpath("//a[@class='dropdown-item'][normalize-space()='Logout']"));
+        logout.click();
 
         driver.close();
 
