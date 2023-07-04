@@ -4,8 +4,8 @@ Feature: Register Flow Feature Test Suite
     Given Home page is accessed
     And Register page is accessed from HomePage menu
     When the registration form is completed with valid random data
-    And the privacyToggle is enabled
-    And continueButton is clicked
+    And "privacyToggle" from "RegisterPage" is clicked
+    And "continueButton" from "RegisterPage" is clicked
     Then the current url contains the following keyword: "account"
 
 
@@ -13,7 +13,7 @@ Feature: Register Flow Feature Test Suite
       Given Home page is accessed
       And Register page is accessed from HomePage menu
       When the registration form is completed with valid random data
-      And the privacyToggle is enabled
+      And "privacyToggle" from "RegisterPage" is clicked
       Then the current url contains the following keyword: "account"
 
       @run
@@ -25,7 +25,7 @@ Feature: Register Flow Feature Test Suite
           | lastName  | <lastName>  |
           | email     | random      |
           | password  | Random      |
-        When continueButton is clicked
+        When "continueButton" from "RegisterPage" is clicked
         Then the following error messages are displayed:
           | Warning: You must agree to the Privacy Policy!   |
           | <attribute> must be between 1 and 32 characters! |
