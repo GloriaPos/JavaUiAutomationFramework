@@ -25,22 +25,6 @@ public class RegisterPageSteps {
         
     }
 
-    @And("the privacyToggle is enabled")
-    public void thePrivacyToggleIsEnabled() {
-        try {
-            registerPage.switchOnThePrivacyToggle(driver);
-        } catch (InterruptedException e) {
-            System.out.println("Error!");
-        }
-
-    }
-
-    @And("continueButton is clicked")
-    public void continuebuttonIsClicked() throws InterruptedException {
-        registerPage.clickOnContinueButton();
-        Thread.sleep(500);
-    }
-
     @And("the registration form is completed with the following data:")
     public void theRegistrationFormIsCompletedWithTheFollowingData(Map<String, String> userdetailsMap) {
         String firstNameValue = userdetailsMap.get("firstName");
